@@ -9,7 +9,7 @@
 
     <gradient
         android:type="radial"
-        android:gradientRadius="8dp"
+        android:gradientRadius="12dp"
         android:endColor="@color/cardview_light_background"
         />
 

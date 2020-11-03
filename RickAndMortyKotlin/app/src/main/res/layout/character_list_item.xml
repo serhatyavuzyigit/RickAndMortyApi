@@ -36,6 +36,8 @@
             android:layout_marginTop="2dp"
             android:layout_marginStart="4dp"
             android:text="name"
+            android:textColor="#1DA1F2"
+            android:background="@color/cardview_light_background"
             android:textStyle="bold"
             android:typeface="sans"
             android:textSize="12sp"

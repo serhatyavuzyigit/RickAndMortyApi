@@ -1,9 +1,10 @@
-package com.example.rickandmortykotlin.ui.character_details
+package com.example.rickandmortykotlin.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.moviemvvm.data.repository.NetworkState
 import com.example.rickandmortykotlin.data.value_object.CharacterDetails
+import com.example.rickandmortykotlin.ui.character_details.CharacterDetailsRepository
 import io.reactivex.disposables.CompositeDisposable
 
 class SingleCharacterViewModel (private val characterDetailsRepository: CharacterDetailsRepository, characterId: Int): ViewModel() {

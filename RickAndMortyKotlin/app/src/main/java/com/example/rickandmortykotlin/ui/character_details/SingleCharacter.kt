@@ -13,6 +13,7 @@ import com.example.rickandmortykotlin.R
 import com.example.rickandmortykotlin.data.api.RickAndMortApiClient
 import com.example.rickandmortykotlin.data.api.RickAndMortApiInterface
 import com.example.rickandmortykotlin.data.value_object.CharacterDetails
+import com.example.rickandmortykotlin.ui.viewmodel.SingleCharacterViewModel
 import kotlinx.android.synthetic.main.activity_single_character.*
 
 class SingleCharacter : AppCompatActivity() {
@@ -42,7 +43,7 @@ class SingleCharacter : AppCompatActivity() {
 
     private fun updateToUI(it: CharacterDetails?) {
         if (it != null) {
-            character_name.text = it.name
+            character_name.text =  it.name
         }
         if (it != null) {
             character_status.text = it.status
@@ -54,11 +55,14 @@ class SingleCharacter : AppCompatActivity() {
         Glide.with(this).load(imageUrl).into(character_poster)
     }
 
-    private fun getViewModel(characterId: Int): SingleCharacterViewModel{
+    private fun getViewModel(characterId: Int): SingleCharacterViewModel {
         return ViewModelProviders.of(this, object : ViewModelProvider.Factory{
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
                 @Suppress("UNCHECKED_CAST")
-                return SingleCharacterViewModel(characterDetailsRepository, characterId) as T
+                return SingleCharacterViewModel(
+                    characterDetailsRepository,
+                    characterId
+                ) as T
             }
         })[SingleCharacterViewModel::class.java]
     }

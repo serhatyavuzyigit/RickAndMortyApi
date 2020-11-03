@@ -1,6 +1,5 @@
 package com.example.rickandmortykotlin
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,11 +11,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.moviemvvm.data.repository.NetworkState
 import com.example.rickandmortykotlin.data.api.RickAndMortApiClient
 import com.example.rickandmortykotlin.data.api.RickAndMortApiInterface
-import com.example.rickandmortykotlin.ui.character_details.SingleCharacter
-import com.example.rickandmortykotlin.ui.character_details.SingleCharacterViewModel
 import com.example.rickandmortykotlin.ui.main_screen.CharacterPageListRepository
 import com.example.rickandmortykotlin.ui.main_screen.CharactersPageListAdapter
-import com.example.rickandmortykotlin.ui.main_screen.MainActivityViewModel
+import com.example.rickandmortykotlin.ui.viewmodel.MainActivityViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -73,7 +70,9 @@ class MainActivity : AppCompatActivity() {
         return ViewModelProviders.of(this, object : ViewModelProvider.Factory{
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
                 @Suppress("UNCHECKED_CAST")
-                return MainActivityViewModel(characterPageListRepository) as T
+                return MainActivityViewModel(
+                    characterPageListRepository
+                ) as T
             }
         })[MainActivityViewModel::class.java]
     }

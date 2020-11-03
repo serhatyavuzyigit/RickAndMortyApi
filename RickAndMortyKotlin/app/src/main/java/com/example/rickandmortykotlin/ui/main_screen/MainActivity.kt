@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         val characterPageListAdapter = CharactersPageListAdapter(this)
 
-        val gridLayoutManager = GridLayoutManager(this, 3)
+        val gridLayoutManager = GridLayoutManager(this, 2)
         gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
                 val viewType = characterPageListAdapter.getItemViewType(position)
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                     return 1
                 }
                 else
-                    return 3
+                    return 2
             }
         }
 
